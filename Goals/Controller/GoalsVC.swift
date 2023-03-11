@@ -88,7 +88,7 @@ class GoalsVC: UIViewController {
     
     //MARK: - Actions
     @objc private func addGoal() {
-        print("button")
+        print("button1")
     }
 }
 
