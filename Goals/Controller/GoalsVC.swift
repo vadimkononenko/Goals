@@ -7,10 +7,11 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class GoalsVC: UIViewController {
     
-    //MARK: - views
+    //MARK: - Views
     private let topView: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.737254902, blue: 0.3882352941, alpha: 1)
@@ -79,19 +80,19 @@ class GoalsVC: UIViewController {
         return tableView
     }()
     
-    //MARK: - lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
-    //MARK: - actions
+    //MARK: - Actions
     @objc private func addGoal() {
         print("button")
     }
 }
 
-//MARK: - configure
+//MARK: - Configure
 extension GoalsVC {
     private func configure() {
         setupViews()
@@ -142,10 +143,12 @@ extension GoalsVC {
     
 }
 
+//MARK: - UITableViewDelegate
 extension GoalsVC: UITableViewDelegate {
     
 }
 
+//MARK: - UITableViewDataSource
 extension GoalsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
