@@ -12,37 +12,7 @@ import CoreData
 class GoalsVC: UIViewController {
     
     //MARK: - Views
-    private let topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.737254902, blue: 0.3882352941, alpha: 1)
-        return view
-    }()
-    
-    private let goalLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.text = "GOAL"
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let postLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.text = "POST"
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let navTitleStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        return stackView
-    }()
+    private let navBarView = NavBar()
     
     private lazy var addGoalButton: UIButton = {
         let button = UIButton()
@@ -103,13 +73,9 @@ extension GoalsVC {
     }
     
     private func setupViews() {
-        view.addSubview(topView)
+        view.addSubview(navBarView)
         
-        topView.addSubview(navTitleStackView)
-        navTitleStackView.addArrangedSubview(goalLabel)
-        navTitleStackView.addArrangedSubview(postLabel)
-        
-        topView.addSubview(addGoalButton)
+        navBarView.addSubview(addGoalButton)
         
         view.addSubview(greetingStackView)
         greetingStackView.addArrangedSubview(welcomeLabel)
@@ -119,24 +85,20 @@ extension GoalsVC {
     }
     
     private func setupConstraints() {
-        topView.snp.makeConstraints { make in
+        navBarView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(100)
-        }
-        navTitleStackView.snp.makeConstraints { make in
-            make.centerX.equalTo(topView)
-            make.centerY.equalTo(topView).offset(25)
+            make.height.equalTo(90)
         }
         addGoalButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-15)
-            make.centerY.equalTo(navTitleStackView)
+            make.bottom.equalToSuperview().offset(-10)
         }
         greetingStackView.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom).offset(95)
+            make.top.equalTo(navBarView.snp.bottom).offset(95)
             make.centerX.equalToSuperview()
         }
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom)
+            make.top.equalTo(navBarView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
