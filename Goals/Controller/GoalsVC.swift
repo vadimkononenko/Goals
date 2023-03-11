@@ -156,7 +156,7 @@ extension GoalsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoalCell.reuseId) as! GoalCell
-        cell.configureCell(description: "Description", type: "Short-term", goalProgressAmount: 10)
+        cell.configureCell(description: "Description", type: .shortTerm, goalProgressAmount: 10)
         return cell
     }
 }
