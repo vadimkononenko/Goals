@@ -15,6 +15,7 @@ class NavTitle: UIView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.text = "GOAL"
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -23,6 +24,7 @@ class NavTitle: UIView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.text = "POST"
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
