@@ -68,6 +68,7 @@ extension GoalsVC {
         setupConstraints()
         
         navigationItem.titleView = NavTitle()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addGoalButton)
         
         tableView.delegate = self
         tableView.dataSource = self
