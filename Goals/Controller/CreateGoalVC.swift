@@ -11,8 +11,6 @@ import SnapKit
 class CreateGoalVC: UIViewController {
     
     //MARK: - Views
-    private let navBarView = NavBar()
-    
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "back"), for: .normal)
@@ -20,9 +18,11 @@ class CreateGoalVC: UIViewController {
         return button
     }()
     
-    private let goalTextField: UITextField = {
-        let textField = UITextField()
-        return textField
+    private let goalTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello"
+        textView.font = .systemFont(ofSize: 16)
+        return textView
     }()
     
     private let selectLabel: UILabel = {
@@ -81,6 +81,7 @@ class CreateGoalVC: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
     }
 
 }
@@ -90,42 +91,34 @@ extension CreateGoalVC {
     private func configure() {
         setupViews()
         setupConstraints()
+        
+        view.backgroundColor = .white
+        
+        navigationItem.titleView = NavTitle()
     }
     
     private func setupViews() {
-        view.addSubview(navBarView)
-        navBarView.addSubview(backButton)
+        view.addSubview(allStackView)
         
-        view.addSubview(termStackView)
+        allStackView.addArrangedSubview(goalTextView)
+        allStackView.addArrangedSubview(selectLabel)
+        allStackView.addArrangedSubview(termStackView)
+        
         termStackView.addArrangedSubview(shortTermButton)
         termStackView.addArrangedSubview(longTermButton)
         
-        view.addSubview(allStackView)
-        allStackView.addArrangedSubview(goalTextField)
-        allStackView.addArrangedSubview(selectLabel)
-        allStackView.addArrangedSubview(termStackView)
+        view.addSubview(nextButton)
     }
     
     private func setupConstraints() {
-        navBarView.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
-            make.height.equalTo(90)
-        }
-        backButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(15)
-            make.bottom.equalToSuperview().offset(-10)
-        }
-        termStackView.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
         allStackView.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.top.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
             make.height.equalTo(260)
         }
         nextButton.snp.makeConstraints { make in
             make.leading.bottom.trailing.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(80)
         }
     }
 }
