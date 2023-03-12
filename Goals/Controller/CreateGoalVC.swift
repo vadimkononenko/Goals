@@ -20,8 +20,9 @@ class CreateGoalVC: UIViewController {
     
     private let goalTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello"
-        textView.font = .systemFont(ofSize: 16)
+        textView.text = "What is your goal?"
+        textView.font = .systemFont(ofSize: 18, weight: .semibold)
+        textView.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         return textView
     }()
     
@@ -114,7 +115,7 @@ extension CreateGoalVC {
         allStackView.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
-            make.height.equalTo(260)
+            make.height.equalTo(350)
         }
         nextButton.snp.makeConstraints { make in
             make.leading.bottom.trailing.equalToSuperview()
