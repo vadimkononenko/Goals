@@ -12,8 +12,6 @@ import CoreData
 class GoalsVC: UIViewController {
     
     //MARK: - Views
-    private let navBarView = NavBar()
-    
     private lazy var addGoalButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "addGoal"), for: .normal)
@@ -58,7 +56,8 @@ class GoalsVC: UIViewController {
     
     //MARK: - Actions
     @objc private func addGoal() {
-        print("button1")
+        let vc = CreateGoalVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -68,15 +67,13 @@ extension GoalsVC {
         setupViews()
         setupConstraints()
         
+        navigationItem.titleView = NavTitle()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     private func setupViews() {
-        view.addSubview(navBarView)
-        
-        navBarView.addSubview(addGoalButton)
-        
         view.addSubview(greetingStackView)
         greetingStackView.addArrangedSubview(welcomeLabel)
         greetingStackView.addArrangedSubview(descriptionWelcomeLabel)
@@ -85,21 +82,12 @@ extension GoalsVC {
     }
     
     private func setupConstraints() {
-        navBarView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(90)
-        }
-        addGoalButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-15)
-            make.bottom.equalToSuperview().offset(-10)
-        }
         greetingStackView.snp.makeConstraints { make in
-            make.top.equalTo(navBarView.snp.bottom).offset(95)
-            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(95)
+            make.centerY.equalToSuperview()
         }
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(navBarView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.top.trailing.bottom.equalToSuperview()
         }
     }
     
