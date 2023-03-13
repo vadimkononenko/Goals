@@ -10,14 +10,10 @@ import SnapKit
 
 class CreateGoalVC: UIViewController {
     
-    //MARK: - Views
-    private lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "back"), for: .normal)
-//        button.addTarget(self, action: #selector(addGoal), for: .touchUpInside)
-        return button
-    }()
+    //MARK: - Variables
+    private var goalType: GoalType = .shortTerm
     
+    //MARK: - Views
     private let goalTextView: UITextView = {
         let textView = UITextView()
         textView.text = "What is your goal?"
@@ -34,21 +30,23 @@ class CreateGoalVC: UIViewController {
         return label
     }()
     
-    private let shortTermButton: UIButton = {
+    private lazy var shortTermButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.setTitle("SHORT TERM", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.737254902, blue: 0.3882352941, alpha: 1)
+        button.setSelectedColor()
+        button.addTarget(self, action: #selector(handleShortTermButton), for: .touchUpInside)
         return button
     }()
     
-    private let longTermButton: UIButton = {
+    private lazy var longTermButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.setTitle("LONG TERM", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.6980392157, green: 0.8666666667, blue: 0.6862745098, alpha: 1)
+        button.setDeselectedColor()
+        button.addTarget(self, action: #selector(handleLongTermButton), for: .touchUpInside)
         return button
     }()
     
@@ -87,11 +85,15 @@ class CreateGoalVC: UIViewController {
 
     //MARK: - Actions
     @objc private func handleShortTermButton() {
-        
+        goalType = .shortTerm
+        shortTermButton.setSelectedColor()
+        longTermButton.setDeselectedColor()
     }
     
     @objc private func handleLongTermButton() {
-        
+        goalType = .longTerm
+        longTermButton.setSelectedColor()
+        shortTermButton.setDeselectedColor()
     }
     
     @objc private func handleNextButton() {
@@ -109,6 +111,8 @@ extension CreateGoalVC {
         view.backgroundColor = .white
         
         navigationItem.titleView = NavTitle()
+        
+        nextButton.bindToKeyboard()
     }
     
     private func setupViews() {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		80AF423A15FBED45C5E82D08 /* Pods_Goals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978ED2AC12D861A9E8EA0972 /* Pods_Goals.framework */; };
+		A706B95929BF285F00810617 /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706B95829BF285F00810617 /* UIView+Extention.swift */; };
+		A706B95B29BF2C3400810617 /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706B95A29BF2C3400810617 /* UIButton+Extention.swift */; };
 		A76F0B8429BCB12D00C0FF25 /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F0B8329BCB12D00C0FF25 /* GoalType.swift */; };
 		A76F0B8729BCB59800C0FF25 /* NavTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F0B8629BCB59800C0FF25 /* NavTitle.swift */; };
 		A76F0B8929BCB9F700C0FF25 /* CreateGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F0B8829BCB9F700C0FF25 /* CreateGoalVC.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		577D2547862CF219DE57BC55 /* Pods-Goals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goals.release.xcconfig"; path = "Target Support Files/Pods-Goals/Pods-Goals.release.xcconfig"; sourceTree = "<group>"; };
 		978ED2AC12D861A9E8EA0972 /* Pods_Goals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A706B95829BF285F00810617 /* UIView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
+		A706B95A29BF2C3400810617 /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
 		A76F0B8329BCB12D00C0FF25 /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		A76F0B8629BCB59800C0FF25 /* NavTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTitle.swift; sourceTree = "<group>"; };
 		A76F0B8829BCB9F700C0FF25 /* CreateGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalVC.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 		A7F92B6329B5148500044D64 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				A706B95829BF285F00810617 /* UIView+Extention.swift */,
+				A706B95A29BF2C3400810617 /* UIButton+Extention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -275,12 +281,14 @@
 			files = (
 				A7F92B5229B5136C00044D64 /* Goals.xcdatamodeld in Sources */,
 				A7F92B4829B5136C00044D64 /* AppDelegate.swift in Sources */,
+				A706B95B29BF2C3400810617 /* UIButton+Extention.swift in Sources */,
 				A76F0B8429BCB12D00C0FF25 /* GoalType.swift in Sources */,
 				A7F92B4A29B5136C00044D64 /* SceneDelegate.swift in Sources */,
 				A76F0B8729BCB59800C0FF25 /* NavTitle.swift in Sources */,
 				A76F0B8929BCB9F700C0FF25 /* CreateGoalVC.swift in Sources */,
 				A79BC43029BBB7DC00C28D6D /* GoalCell.swift in Sources */,
 				A7F92B6529B52C9E00044D64 /* GoalsVC.swift in Sources */,
+				A706B95929BF285F00810617 /* UIView+Extention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
