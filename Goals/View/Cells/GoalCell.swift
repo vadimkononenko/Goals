@@ -56,7 +56,7 @@ class GoalCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         stackView.spacing = 10
         return stackView
     }()
@@ -73,7 +73,6 @@ class GoalCell: UITableViewCell {
     private let goalProgressLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 28, weight: .bold)
-        label.text = "7"
         label.textAlignment = .center
         label.textColor = #colorLiteral(red: 0.4274509804, green: 0.737254902, blue: 0.3882352941, alpha: 1)
         label.adjustsFontSizeToFitWidth = true

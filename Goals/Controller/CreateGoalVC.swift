@@ -85,6 +85,19 @@ class CreateGoalVC: UIViewController {
         configure()
     }
 
+    //MARK: - Actions
+    @objc private func handleShortTermButton() {
+        
+    }
+    
+    @objc private func handleLongTermButton() {
+        
+    }
+    
+    @objc private func handleNextButton() {
+        
+    }
+    
 }
 
 //MARK: - Configure

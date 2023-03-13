@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().standardAppearance = appearence
         UINavigationBar.appearance().scrollEdgeAppearance = appearence
         
+        UINavigationBar.appearance().tintColor = .white
+        
         return true
     }
 
