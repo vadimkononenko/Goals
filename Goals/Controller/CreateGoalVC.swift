@@ -68,12 +68,13 @@ class CreateGoalVC: UIViewController {
         return stackView
     }()
     
-    private let nextButton: UIButton = {
+    private lazy var nextButton: UIButton = {
         let button = UIButton()
         button.setTitle("NEXT", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
         return button
     }()
 
@@ -97,7 +98,11 @@ class CreateGoalVC: UIViewController {
     }
     
     @objc private func handleNextButton() {
-        
+        if goalTextView.text != "" && goalTextView.text != "What is your goal?" {
+            let finishVC = FinishGoalVC()
+            finishVC.initData(description: goalTextView.text, type: goalType)
+            navigationController?.pushViewController(finishVC, animated: true)
+        }
     }
     
 }
@@ -108,9 +113,12 @@ extension CreateGoalVC {
         setupViews()
         setupConstraints()
         
+        goalTextView.delegate = self
+        
         view.backgroundColor = .white
         
         navigationItem.titleView = NavTitle()
+        navigationItem.backButtonTitle = ""
         
         nextButton.bindToKeyboard()
     }
@@ -138,5 +146,12 @@ extension CreateGoalVC {
             make.leading.bottom.trailing.equalToSuperview()
             make.height.equalTo(80)
         }
+    }
+}
+
+extension CreateGoalVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+        textView.textColor = .black
     }
 }

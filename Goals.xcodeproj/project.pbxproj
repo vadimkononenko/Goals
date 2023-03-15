@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80AF423A15FBED45C5E82D08 /* Pods_Goals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978ED2AC12D861A9E8EA0972 /* Pods_Goals.framework */; };
+		A55A1DCA5A80F2741995D02B /* Pods_Goals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D546A3D6D316077E6E58AB30 /* Pods_Goals.framework */; };
 		A706B95929BF285F00810617 /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706B95829BF285F00810617 /* UIView+Extention.swift */; };
 		A706B95B29BF2C3400810617 /* UIButton+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706B95A29BF2C3400810617 /* UIButton+Extention.swift */; };
 		A76F0B8429BCB12D00C0FF25 /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F0B8329BCB12D00C0FF25 /* GoalType.swift */; };
 		A76F0B8729BCB59800C0FF25 /* NavTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F0B8629BCB59800C0FF25 /* NavTitle.swift */; };
 		A76F0B8929BCB9F700C0FF25 /* CreateGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F0B8829BCB9F700C0FF25 /* CreateGoalVC.swift */; };
 		A79BC43029BBB7DC00C28D6D /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79BC42F29BBB7DC00C28D6D /* GoalCell.swift */; };
+		A7BA095529C072A1005CD84F /* FinishGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA095429C072A1005CD84F /* FinishGoalVC.swift */; };
 		A7F92B4829B5136C00044D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F92B4729B5136C00044D64 /* AppDelegate.swift */; };
 		A7F92B4A29B5136C00044D64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F92B4929B5136C00044D64 /* SceneDelegate.swift */; };
 		A7F92B5229B5136C00044D64 /* Goals.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7F92B5029B5136C00044D64 /* Goals.xcdatamodeld */; };
@@ -23,14 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		577D2547862CF219DE57BC55 /* Pods-Goals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goals.release.xcconfig"; path = "Target Support Files/Pods-Goals/Pods-Goals.release.xcconfig"; sourceTree = "<group>"; };
-		978ED2AC12D861A9E8EA0972 /* Pods_Goals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0538561A9E93AC910F0A0211 /* Pods-Goals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goals.debug.xcconfig"; path = "Target Support Files/Pods-Goals/Pods-Goals.debug.xcconfig"; sourceTree = "<group>"; };
 		A706B95829BF285F00810617 /* UIView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
 		A706B95A29BF2C3400810617 /* UIButton+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extention.swift"; sourceTree = "<group>"; };
 		A76F0B8329BCB12D00C0FF25 /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		A76F0B8629BCB59800C0FF25 /* NavTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTitle.swift; sourceTree = "<group>"; };
 		A76F0B8829BCB9F700C0FF25 /* CreateGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalVC.swift; sourceTree = "<group>"; };
 		A79BC42F29BBB7DC00C28D6D /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
+		A7BA095429C072A1005CD84F /* FinishGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishGoalVC.swift; sourceTree = "<group>"; };
 		A7F92B4429B5136C00044D64 /* Goals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F92B4729B5136C00044D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7F92B4929B5136C00044D64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +40,8 @@
 		A7F92B5629B5136F00044D64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7F92B5829B5136F00044D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7F92B6429B52C9E00044D64 /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
-		F4607C7A7595A3B5E9528391 /* Pods-Goals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goals.debug.xcconfig"; path = "Target Support Files/Pods-Goals/Pods-Goals.debug.xcconfig"; sourceTree = "<group>"; };
+		D546A3D6D316077E6E58AB30 /* Pods_Goals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E25A279FF5B37597E91EC5CC /* Pods-Goals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goals.release.xcconfig"; path = "Target Support Files/Pods-Goals/Pods-Goals.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80AF423A15FBED45C5E82D08 /* Pods_Goals.framework in Frameworks */,
+				A55A1DCA5A80F2741995D02B /* Pods_Goals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,8 +59,8 @@
 		A4D542E7BA1CB8EAD6CB4565 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4607C7A7595A3B5E9528391 /* Pods-Goals.debug.xcconfig */,
-				577D2547862CF219DE57BC55 /* Pods-Goals.release.xcconfig */,
+				0538561A9E93AC910F0A0211 /* Pods-Goals.debug.xcconfig */,
+				E25A279FF5B37597E91EC5CC /* Pods-Goals.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -78,7 +80,7 @@
 				A7F92B5029B5136C00044D64 /* Goals.xcdatamodeld */,
 				A7F92B4529B5136C00044D64 /* Products */,
 				A4D542E7BA1CB8EAD6CB4565 /* Pods */,
-				DD8F9677B31BF55C75E546B6 /* Frameworks */,
+				FD30DD5F6B2901ED99DCC45B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +129,7 @@
 			children = (
 				A7F92B6429B52C9E00044D64 /* GoalsVC.swift */,
 				A76F0B8829BCB9F700C0FF25 /* CreateGoalVC.swift */,
+				A7BA095429C072A1005CD84F /* FinishGoalVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,10 +160,10 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
-		DD8F9677B31BF55C75E546B6 /* Frameworks */ = {
+		FD30DD5F6B2901ED99DCC45B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				978ED2AC12D861A9E8EA0972 /* Pods_Goals.framework */,
+				D546A3D6D316077E6E58AB30 /* Pods_Goals.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,11 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7F92B5B29B5136F00044D64 /* Build configuration list for PBXNativeTarget "Goals" */;
 			buildPhases = (
-				831A4BE3529C85966C5810F5 /* [CP] Check Pods Manifest.lock */,
+				E3DB0C72B4034A75CB3C36C2 /* [CP] Check Pods Manifest.lock */,
 				A7F92B4029B5136C00044D64 /* Sources */,
 				A7F92B4129B5136C00044D64 /* Frameworks */,
 				A7F92B4229B5136C00044D64 /* Resources */,
-				80EE47FA66CC07D3A2174279 /* [CP] Embed Pods Frameworks */,
+				19B93A839ACA1548E9BBB3E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,7 +236,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		80EE47FA66CC07D3A2174279 /* [CP] Embed Pods Frameworks */ = {
+		19B93A839ACA1548E9BBB3E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,7 +253,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Goals/Pods-Goals-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		831A4BE3529C85966C5810F5 /* [CP] Check Pods Manifest.lock */ = {
+		E3DB0C72B4034A75CB3C36C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,6 +287,7 @@
 				A706B95B29BF2C3400810617 /* UIButton+Extention.swift in Sources */,
 				A76F0B8429BCB12D00C0FF25 /* GoalType.swift in Sources */,
 				A7F92B4A29B5136C00044D64 /* SceneDelegate.swift in Sources */,
+				A7BA095529C072A1005CD84F /* FinishGoalVC.swift in Sources */,
 				A76F0B8729BCB59800C0FF25 /* NavTitle.swift in Sources */,
 				A76F0B8929BCB9F700C0FF25 /* CreateGoalVC.swift in Sources */,
 				A79BC43029BBB7DC00C28D6D /* GoalCell.swift in Sources */,
@@ -422,7 +426,7 @@
 		};
 		A7F92B5C29B5136F00044D64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4607C7A7595A3B5E9528391 /* Pods-Goals.debug.xcconfig */;
+			baseConfigurationReference = 0538561A9E93AC910F0A0211 /* Pods-Goals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,7 +453,7 @@
 		};
 		A7F92B5D29B5136F00044D64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 577D2547862CF219DE57BC55 /* Pods-Goals.release.xcconfig */;
+			baseConfigurationReference = E25A279FF5B37597E91EC5CC /* Pods-Goals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
