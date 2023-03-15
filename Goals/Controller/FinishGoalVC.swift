@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class FinishGoalVC: UIViewController {
     
@@ -64,7 +65,31 @@ class FinishGoalVC: UIViewController {
     
     //MARK: - Actions
     @objc private func createGoal() {
+        if textField.text != "" {
+            save { completed in
+                if completed {
+                    navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        }
+    }
+    
+    private func save(complition: (_ complete: Bool) -> ()) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let goal = Goal(context: managedContext)
         
+        goal.goalDescription = goalDesription
+        goal.goalType = goalType.rawValue
+        goal.goalComplitionValue = Int32(textField.text!)!
+        goal.goalProgress = Int32(0)
+        
+        do {
+            try managedContext.save()
+            complition(true)
+        } catch {
+            print(error.localizedDescription)
+            complition(false)
+        }
     }
     
     func initData(description: String, type: GoalType) {

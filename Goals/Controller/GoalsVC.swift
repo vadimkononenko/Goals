@@ -9,7 +9,12 @@ import UIKit
 import SnapKit
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
 class GoalsVC: UIViewController {
+    
+    //MARK: - Variables
+    private var goals: [Goal] = []
     
     //MARK: - Views
     private lazy var addGoalButton: UIButton = {
@@ -54,6 +59,20 @@ class GoalsVC: UIViewController {
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetch { complete in
+            if complete {
+                if goals.count >= 1 {
+                    tableView.isHidden = false
+                    tableView.reloadData()
+                } else {
+                    tableView.isHidden = true
+                }
+            }
+        }
+    }
+    
     //MARK: - Actions
     @objc private func addGoal() {
         let vc = CreateGoalVC()
@@ -61,8 +80,8 @@ class GoalsVC: UIViewController {
     }
 }
 
-//MARK: - Configure
 extension GoalsVC {
+    //MARK: - Configure
     private func configure() {
         setupViews()
         setupConstraints()
@@ -93,6 +112,20 @@ extension GoalsVC {
         }
     }
     
+    //MARK: - Fetch data
+    private func fetch(complition: (_ complete: Bool) -> ()) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        let fetchRequest = NSFetchRequest<Goal>(entityName: "Goal")
+        
+        do {
+            self.goals = try managedContext.fetch(fetchRequest)
+            complition(true)
+        } catch {
+            debugPrint(error.localizedDescription)
+            complition(false)
+        }
+    }
 }
 
 //MARK: - UITableViewDelegate
@@ -103,12 +136,13 @@ extension GoalsVC: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension GoalsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return goals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoalCell.reuseId) as! GoalCell
-        cell.configureCell(description: "Description", type: .shortTerm, goalProgressAmount: 10)
+        let goal = goals[indexPath.row]
+        cell.configureCell(goal: goal)
         return cell
     }
 }
