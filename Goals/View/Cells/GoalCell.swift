@@ -25,7 +25,6 @@ class GoalCell: UITableViewCell {
     private let goalDescLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.text = "Label"
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -37,18 +36,14 @@ class GoalCell: UITableViewCell {
         return label
     }()
     
-    private let typeDescLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Label"
-        return label
-    }()
+    private let typeDescLabel = UILabel()
     
     private let goalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
-        stackView.spacing = 20
+        stackView.spacing = 10
         return stackView
     }()
     
@@ -66,7 +61,7 @@ class GoalCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.spacing = 5
+        stackView.spacing = 3
         return stackView
     }()
     
@@ -121,6 +116,12 @@ extension GoalCell {
     }
     
     private func setupConstraints() {
+        goalLabel.snp.makeConstraints { make in
+            make.width.equalTo(50)
+        }
+        typeLabel.snp.makeConstraints { make in
+            make.width.equalTo(50)
+        }
         cellStackView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(10)
