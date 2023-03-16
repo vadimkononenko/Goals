@@ -110,8 +110,9 @@ extension GoalsVC {
     
     private func setupConstraints() {
         greetingStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(95)
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview().offset(140)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(70)
         }
         tableView.snp.makeConstraints { make in
             make.leading.top.trailing.bottom.equalToSuperview()
