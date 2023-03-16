@@ -74,6 +74,22 @@ class GoalCell: UITableViewCell {
         label.minimumScaleFactor = 0.5
         return label
     }()
+    
+    // Complition VIEW of goal
+    private lazy var complitionView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.9385008216, green: 0.7164282203, blue: 0.3331356049, alpha: 0.8)
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var complitionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = .boldSystemFont(ofSize: 30)
+        lbl.text = "GOAL COMPLETED"
+        lbl.textColor = .white
+        return lbl
+    }()
 
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -90,6 +106,12 @@ class GoalCell: UITableViewCell {
         self.goalDescLabel.text = goal.goalDescription
         self.typeDescLabel.text = goal.goalType
         self.goalProgressLabel.text = String(describing: goal.goalProgress)
+        
+        if goal.goalProgress == goal.goalComplitionValue {
+            self.complitionView.isHidden = false
+        } else {
+            complitionView.isHidden = true
+        }
     }
     
 }
@@ -113,6 +135,9 @@ extension GoalCell {
         cellStackView.addArrangedSubview(typeStackView)
         
         addSubview(goalProgressLabel)
+        
+        addSubview(complitionView)
+        complitionView.addSubview(complitionLabel)
     }
     
     private func setupConstraints() {
@@ -131,6 +156,12 @@ extension GoalCell {
             make.top.equalToSuperview().offset(8)
             make.bottom.trailing.equalToSuperview().offset(-8)
             make.width.equalTo(40)
+        }
+        complitionView.snp.makeConstraints { make in
+            make.leading.top.trailing.bottom.equalToSuperview()
+        }
+        complitionLabel.snp.makeConstraints { make in
+            make.center.equalTo(complitionView)
         }
     }
 }

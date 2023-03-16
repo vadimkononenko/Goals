@@ -119,6 +119,23 @@ extension GoalsVC {
         }
     }
     
+    private func setProgress(at indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        let choosenGoal = goals[indexPath.row]
+        
+        if choosenGoal.goalProgress < choosenGoal.goalComplitionValue {
+            choosenGoal.goalProgress += 1
+        } else { return }
+        
+        do {
+            try managedContext.save()
+            print("Successfuly saved progress!")
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
+    }
+    
     //MARK: - Fetch data
     private func fetch(complition: (_ complete: Bool) -> ()) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
@@ -160,15 +177,21 @@ extension GoalsVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "DELETE") { (action, view, complition) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "DELETE") { (action, view, complition) in
             self.removeGoal(at: indexPath)
             self.fetchCoreDataObjects()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             complition(true)
         }
-        action.backgroundColor = .red
+        deleteAction.backgroundColor = .red
         
-        return UISwipeActionsConfiguration(actions: [action])
+        let addAction = UIContextualAction(style: .normal, title: "ADD 1") { (action, view, complition) in
+            self.setProgress(at: indexPath)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        addAction.backgroundColor = .orange
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, addAction])
     }
 }
 
