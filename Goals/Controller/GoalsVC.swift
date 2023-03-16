@@ -61,11 +61,15 @@ class GoalsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchCoreDataObjects()
+        tableView.reloadData()
+    }
+    
+    private func fetchCoreDataObjects() {
         fetch { complete in
             if complete {
                 if goals.count >= 1 {
                     tableView.isHidden = false
-                    tableView.reloadData()
                 } else {
                     tableView.isHidden = true
                 }
@@ -85,6 +89,8 @@ extension GoalsVC {
     private func configure() {
         setupViews()
         setupConstraints()
+        
+        view.backgroundColor = .white
         
         navigationItem.titleView = NavTitle()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addGoalButton)
@@ -126,11 +132,43 @@ extension GoalsVC {
             complition(false)
         }
     }
+    
+    //MARK: - Remove data
+    private func removeGoal(at indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        managedContext.delete(goals[indexPath.row])
+        
+        do {
+            try managedContext.save()
+            print("Successfuly removed goal!")
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
+    }
 }
 
 //MARK: - UITableViewDelegate
 extension GoalsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "DELETE") { (action, view, complition) in
+            self.removeGoal(at: indexPath)
+            self.fetchCoreDataObjects()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            complition(true)
+        }
+        action.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 }
 
 //MARK: - UITableViewDataSource
